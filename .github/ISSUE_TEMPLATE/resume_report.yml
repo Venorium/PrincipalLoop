@@ -1,0 +1,28 @@
+name: Resume report
+description: Tell us whether a checkpoint helped, misled or added noise on a real resume
+labels: [field-report]
+body:
+  - type: textarea
+    id: situation
+    attributes:
+      label: Situation
+      description: What was interrupted, what changed in between, how you resumed.
+    validations:
+      required: true
+  - type: dropdown
+    id: outcome
+    attributes:
+      label: Outcome
+      options:
+        - The check caught a change that mattered
+        - Nothing changed and the check confirmed it
+        - The check flagged noise
+        - Something important changed and the check missed it
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: details
+    attributes:
+      label: Details
+      description: Cost in time or tokens if you noticed it, and what would have helped.

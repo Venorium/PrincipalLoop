@@ -1,0 +1,30 @@
+{
+  "schema_version": "0.1",
+  "project_id": "principal-loop-demo",
+  "mission_revision": 1,
+  "goal_id": "G-1",
+  "objective": "Exercise the protocol without a model.",
+  "acceptance_criteria": [
+    "No activation without a safe point."
+  ],
+  "scope": [
+    "service"
+  ],
+  "hard_constraints": [
+    "No real external effect."
+  ],
+  "allowed_actions": [
+    "SIMULATE"
+  ],
+  "observable_sources": [
+    "events"
+  ],
+  "budget": {
+    "max_tokens": 0,
+    "max_wall_seconds": 60,
+    "max_tool_calls": 0
+  },
+  "escalation_conditions": [
+    "Contradictory mission."
+  ]
+}

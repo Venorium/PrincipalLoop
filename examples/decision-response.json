@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "message_id": "M-0101",
+  "project_id": "demo-rewrite",
+  "decision_id": "D-0042",
+  "worker_run_id": "W-0081",
+  "expected_decision_revision": 2,
+  "observed_plan_epoch": 3,
+  "response": "DEFER",
+  "reason": "The running test suite must finish before a stable state can be captured.",
+  "evidence_ids": [
+    "E-090"
+  ],
+  "checkpoint_id": null,
+  "resume_trigger": "TEST_RUN_COMPLETED:TR-28",
+  "defer_until": "2026-10-04T11:50:00Z"
+}

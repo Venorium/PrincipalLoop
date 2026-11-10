@@ -1,0 +1,20 @@
+{
+  "name": "principalloop",
+  "interface": {
+    "displayName": "PrincipalLoop"
+  },
+  "plugins": [
+    {
+      "name": "principalloop",
+      "source": {
+        "source": "local",
+        "path": "./plugins/principalloop"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

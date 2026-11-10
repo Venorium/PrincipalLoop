@@ -1,0 +1,33 @@
+{
+  "name": "principalloop",
+  "version": "0.1.0",
+  "description": "Verifiable resume points for Codex: checkpoint the files your work relies on, then see exactly what changed before continuing.",
+  "author": {
+    "name": "Venorium",
+    "url": "https://github.com/Venorium"
+  },
+  "homepage": "https://github.com/Venorium/PrincipalLoop",
+  "repository": "https://github.com/Venorium/PrincipalLoop",
+  "license": "MIT",
+  "keywords": ["checkpoint", "context", "resume", "handoff", "mcp", "sqlite"],
+  "skills": "./skills/",
+  "mcpServers": "./.mcp.json",
+  "interface": {
+    "displayName": "PrincipalLoop",
+    "shortDescription": "Resume work from verified context",
+    "longDescription": "Save a checkpoint of the files you choose plus a short note. When you or another chat come back, PrincipalLoop compares every tracked file byte for byte and shows what changed, with the captured version still readable. Local SQLite, no model calls, no network. You decide which files are tracked.",
+    "developerName": "Venorium",
+    "category": "Developer Tools",
+    "capabilities": ["Read", "Write"],
+    "websiteURL": "https://github.com/Venorium/PrincipalLoop",
+    "defaultPrompt": [
+      "Save a PrincipalLoop checkpoint of this work",
+      "What changed since my last checkpoint?",
+      "Is PrincipalLoop enabled for this project?"
+    ],
+    "brandColor": "#183C30",
+    "composerIcon": "./assets/icon.png",
+    "logo": "./assets/logo.png",
+    "screenshots": ["./assets/screenshot-check.png"]
+  }
+}

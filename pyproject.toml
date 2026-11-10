@@ -1,0 +1,74 @@
+[build-system]
+requires = ["hatchling==1.32.4"]
+build-backend = "hatchling.build"
+
+[project]
+name = "principalloop"
+version = "0.1.0"
+description = "Verifiable resume points for Codex: checkpoint the files your agent relies on, then see exactly what changed before it continues."
+readme = "README.md"
+requires-python = ">=3.13,<3.14"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Venorium" }]
+keywords = ["codex", "mcp", "ai-agents", "coding-agents", "context", "checkpoint", "supervision", "sqlite"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Environment :: Console",
+  "Intended Audience :: Developers",
+  "Operating System :: Microsoft :: Windows",
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Software Development",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+dependencies = [
+  "jsonschema==4.26.0",
+  "referencing==0.37.0",
+  "rfc3339-validator==0.1.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/Venorium/PrincipalLoop"
+Demo = "https://venorium.github.io/PrincipalLoop/"
+Issues = "https://github.com/Venorium/PrincipalLoop/issues"
+Changelog = "https://github.com/Venorium/PrincipalLoop/blob/main/CHANGELOG.md"
+
+[project.scripts]
+principalloop = "principalloop.cli:main"
+
+[dependency-groups]
+dev = ["pytest==9.1.1", "hypothesis==6.168.3", "PyYAML==6.0.3"]
+
+[tool.uv]
+# Evidence was produced with uv 0.12.23; later releases may read the same lock.
+required-version = ">=0.12.23"
+build-constraint-dependencies = [
+  "hatchling==1.32.4", "packaging==26.3", "pathspec==1.1.1",
+  "pluggy==1.6.0", "tomlkit==0.15.1", "trove-classifiers==2026.9.21.13",
+]
+cache-keys = [
+  { file = "pyproject.toml" }, { file = "README.md" },
+  { file = "src/**/*.py" }, { file = "contracts/*.json" },
+  { file = "plugins/principalloop/skills/**/SKILL.md" },
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/principalloop"]
+
+[tool.hatch.build.targets.wheel.force-include]
+contracts = "principalloop/schemas"
+"plugins/principalloop/skills/principalloop/SKILL.md" = "principalloop/skills/principalloop/SKILL.md"
+
+[tool.hatch.build.targets.sdist]
+include = [
+  "src", "contracts", "tests", "examples", "scripts", "docs", "plugins", ".agents/plugins",
+  "pyproject.toml", "README.md", "LICENSE", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md",
+  "SPECIFICATION.md", "VALIDATION.md",
+  "uv.lock", ".python-version", ".gitignore", ".gitattributes",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"

@@ -1,0 +1,17 @@
+{
+  "schema_version": "0.1",
+  "project_id": "principal-loop-demo",
+  "result_id": "R-1",
+  "decision_id": "D-1",
+  "worker_run_id": "RUN-1",
+  "plan_epoch": 1,
+  "evidence_ids": [
+    "E-2"
+  ],
+  "artifacts": [],
+  "check_ids": [
+    "SAFEPOINT-01"
+  ],
+  "reported_outcome": "COMPLETED",
+  "notes": "Executor's claim; no independent verdict yet."
+}

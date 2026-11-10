@@ -1,0 +1,75 @@
+{
+  "schema_version": "0.1",
+  "proposal_id": "P-0042",
+  "project_id": "demo-rewrite",
+  "mission_revision": 1,
+  "policy_revision": 1,
+  "basis_snapshot_id": "S-0142",
+  "basis_event_seq": 1457,
+  "expected_plan_epoch": 3,
+  "kind": "INVESTIGATE",
+  "scope": [
+    "goal:G-1",
+    "component:orders"
+  ],
+  "read_set": [
+    {
+      "object_id": "assumption:A-12",
+      "revision": 3,
+      "sha256": null
+    },
+    {
+      "object_id": "evidence:E-087",
+      "revision": 1,
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+    }
+  ],
+  "evidence_ids": [
+    "E-087"
+  ],
+  "rationale": {
+    "observation": "A retry after a lost response creates two orders for the same key in test ORD-IDEMPOTENCY-01.",
+    "interpretation": "The scenario's idempotency assumption may be wrong; the test contract must be checked as well.",
+    "why_change_now": "The next task assumes this idempotency and could entrench incorrect semantics.",
+    "why_not_continue": "Continuing the optimization would not resolve this uncertainty and could create rework.",
+    "expected_benefit": "Establish the retry contract before continuing a dependent optimization.",
+    "uncertainties": [
+      "The test may use an older version of the contract."
+    ],
+    "would_be_refuted_by": "Versioned evidence showing that the two orders are distinct requests under the approved contract."
+  },
+  "proposed_action": {
+    "objective": "Check the behavior of a retry after a lost response.",
+    "scope_delta": "BOUNDED_CHILD_GOAL",
+    "parent_goal_id": "G-1",
+    "suggested_next_steps": [
+      "Compare the contract with the tested versions.",
+      "Run an isolated retry case."
+    ],
+    "stop_criteria": [
+      "Contract and observation reconciled in a verifiable result.",
+      "Investigation budget reached."
+    ]
+  },
+  "activation": {
+    "boundary": "NEXT_SAFEPOINT",
+    "expires_at": "2026-10-04T12:00:00Z"
+  },
+  "budget_request": {
+    "additional_tokens": 6000,
+    "max_wall_seconds": 900,
+    "max_tool_calls": 12
+  },
+  "verification": {
+    "method": "EXISTING_TEST",
+    "check_ids": [
+      "ORD-IDEMPOTENCY-01"
+    ],
+    "expected_observable": "Versioned result of the retry case and a reference to the contract.",
+    "success_condition": "The uncertainty is resolved by an independent check or explicitly declared inconclusive.",
+    "failure_condition": "No evidence, an unauthorized contract change or a budget overrun.",
+    "deadline_seconds": 1200
+  },
+  "authority_requested": "BOUNDED_AUTONOMY",
+  "supersedes_proposal_id": null
+}

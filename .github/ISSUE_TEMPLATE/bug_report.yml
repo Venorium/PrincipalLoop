@@ -1,0 +1,27 @@
+name: Bug report
+description: Something does not behave as documented
+labels: [bug]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you observed.
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: principalloop codex doctor
+      description: Paste the output. Remove private paths if needed.
+      render: text
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: principalloop 0.1.0, codex-cli 0.166.0, Windows 11
+    validations:
+      required: true
+  - type: markdown
+    attributes:
+      value: Security issues go through a private advisory, see SECURITY.md.

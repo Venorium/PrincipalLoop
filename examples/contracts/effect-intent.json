@@ -1,0 +1,19 @@
+{
+  "schema_version": "0.1",
+  "project_id": "principal-loop-demo",
+  "action_id": "A-1",
+  "worker_run_id": "RUN-1",
+  "lease_id": "L-1",
+  "plan_epoch": 0,
+  "resource_id": "SIMULATED-RESOURCE",
+  "preconditions": [
+    {
+      "object_id": "H-1",
+      "revision": 1,
+      "sha256": null
+    }
+  ],
+  "idempotency_key": "SIMULATED-A-1",
+  "state": "INTENDED",
+  "created_at": "2026-10-04T12:00:00Z"
+}

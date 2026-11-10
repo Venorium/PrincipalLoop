@@ -1,0 +1,338 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:principalloop:decision-proposal:0.1",
+  "title": "PrincipalLoop DecisionProposal v0.1",
+  "description": "A proposal is not authorization. Runtime policy, provenance, freshness, budget and state-transition checks remain mandatory.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": "0.1"
+    },
+    "proposal_id": {
+      "type": "string",
+      "pattern": "^P-[A-Za-z0-9_-]+$"
+    },
+    "project_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "mission_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "policy_revision": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "basis_snapshot_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "basis_event_seq": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "expected_plan_epoch": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "kind": {
+      "enum": [
+        "INVESTIGATE",
+        "REPRIORITIZE",
+        "REFRAME",
+        "PAUSE",
+        "RESUME",
+        "STOP_BRANCH",
+        "ESCALATE"
+      ]
+    },
+    "scope": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "read_set": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "object_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "revision": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "sha256": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        },
+        "required": [
+          "object_id",
+          "revision",
+          "sha256"
+        ]
+      }
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      },
+      "uniqueItems": true,
+      "minItems": 1
+    },
+    "rationale": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "interpretation": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_change_now": {
+          "type": "string",
+          "minLength": 1
+        },
+        "why_not_continue": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_benefit": {
+          "type": "string",
+          "minLength": 1
+        },
+        "uncertainties": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "would_be_refuted_by": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "observation",
+        "interpretation",
+        "why_change_now",
+        "why_not_continue",
+        "expected_benefit",
+        "uncertainties",
+        "would_be_refuted_by"
+      ]
+    },
+    "proposed_action": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "objective": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope_delta": {
+          "enum": [
+            "SAME_SCOPE",
+            "BOUNDED_CHILD_GOAL",
+            "REQUEST_HUMAN_SCOPE_CHANGE"
+          ]
+        },
+        "parent_goal_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "suggested_next_steps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "stop_criteria": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true,
+          "minItems": 1
+        }
+      },
+      "required": [
+        "objective",
+        "scope_delta",
+        "parent_goal_id",
+        "suggested_next_steps",
+        "stop_criteria"
+      ]
+    },
+    "activation": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "boundary": {
+          "enum": [
+            "NEXT_SAFEPOINT",
+            "BEFORE_NEXT_PROTECTED_EFFECT",
+            "AFTER_CURRENT_TASK"
+          ]
+        },
+        "expires_at": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "boundary",
+        "expires_at"
+      ]
+    },
+    "budget_request": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "additional_tokens": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_wall_seconds": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "max_tool_calls": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "required": [
+        "additional_tokens",
+        "max_wall_seconds",
+        "max_tool_calls"
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "method": {
+          "enum": [
+            "EXISTING_TEST",
+            "NEW_TEST",
+            "INDEPENDENT_REVIEW",
+            "HUMAN_REVIEW"
+          ]
+        },
+        "check_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        },
+        "expected_observable": {
+          "type": "string",
+          "minLength": 1
+        },
+        "success_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "failure_condition": {
+          "type": "string",
+          "minLength": 1
+        },
+        "deadline_seconds": {
+          "type": "integer",
+          "minimum": 1
+        }
+      },
+      "required": [
+        "method",
+        "check_ids",
+        "expected_observable",
+        "success_condition",
+        "failure_condition",
+        "deadline_seconds"
+      ]
+    },
+    "authority_requested": {
+      "enum": [
+        "BOUNDED_AUTONOMY",
+        "HUMAN_APPROVAL"
+      ]
+    },
+    "supersedes_proposal_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^P-[A-Za-z0-9_-]+$"
+    }
+  },
+  "required": [
+    "schema_version",
+    "proposal_id",
+    "project_id",
+    "mission_revision",
+    "policy_revision",
+    "basis_snapshot_id",
+    "basis_event_seq",
+    "expected_plan_epoch",
+    "kind",
+    "scope",
+    "read_set",
+    "evidence_ids",
+    "rationale",
+    "proposed_action",
+    "activation",
+    "budget_request",
+    "verification",
+    "authority_requested",
+    "supersedes_proposal_id"
+  ],
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "proposed_action": {
+            "properties": {
+              "scope_delta": {
+                "const": "REQUEST_HUMAN_SCOPE_CHANGE"
+              }
+            }
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "authority_requested": {
+            "const": "HUMAN_APPROVAL"
+          }
+        }
+      }
+    }
+  ]
+}

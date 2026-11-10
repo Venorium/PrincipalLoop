@@ -1,0 +1,54 @@
+# Illustrative configuration for future components; not an available tool yet.
+# Paths are relative to the project root and may be absolute.
+schema_version: "0.1"
+project_id: demo-rewrite
+mode: SHADOW
+project_root: .
+state_root: ../principalloop-state/demo-rewrite
+documentation_root: ../documentation/PrincipalLoop/demo-rewrite
+api:
+  host: 127.0.0.1
+  port: 8765
+  # Secrets come from a protected local channel, never from this file.
+runtime:
+  adapter: file_bridge
+  required_capabilities:
+    - observe
+    - deliver_cooperatively
+    - checkpoints
+  # ENFORCED additionally requires proof that protected effects are covered.
+director:
+  provider: CONFIGURE_AT_INSTALLATION
+  model: CONFIGURE_AT_INSTALLATION
+  max_parallel_runs: 1
+  max_runs_per_hour: 6
+  run_timeout_seconds: 120
+scheduler:
+  tick_seconds: 5
+  coalesce_seconds: 30
+  periodic_review_seconds: 900
+  require_change_or_due_deadline: true
+  quiet_checkpoints_after_replan: 2
+budget:
+  total_tokens: 100000
+  director_share_max: 0.15
+  max_open_investigations: 2
+  # Example test budget; replace with an approved contract.
+policy:
+  max_active_replans: 1
+  max_revisions_per_dispute_without_new_evidence: 1
+  human_approval_for:
+    - global_goal_change
+    - hard_constraint_change
+    - permission_change
+    - budget_increase
+    - external_publication
+  allow_external_effects: false
+storage:
+  sqlite_journal_mode: WAL
+  sqlite_synchronous: FULL
+  max_event_payload_bytes: 16384
+  local_disk_required: true
+presentation:
+  plain_text_available: true
+  default_color: false

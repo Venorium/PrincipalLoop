@@ -1,0 +1,24 @@
+{
+  "schema_version": "0.1",
+  "project_id": "principal-loop-demo",
+  "turn_id": "TURN-1",
+  "snapshot_id": "S-1",
+  "model_version": "deterministic-fixture",
+  "prompt_version": "fixture-1",
+  "config_version": "fixture-1",
+  "read_set": [
+    {
+      "object_id": "H-1",
+      "revision": 1,
+      "sha256": null
+    }
+  ],
+  "outcome": "NO_CHANGE",
+  "proposal": null,
+  "doc_patch": [],
+  "cost": {
+    "input_tokens": 0,
+    "output_tokens": 0,
+    "wall_ms": 0
+  }
+}

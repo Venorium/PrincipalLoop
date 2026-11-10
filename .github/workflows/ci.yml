@@ -1,0 +1,61 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  test:
+    name: ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+        with:
+          version: "0.12.23"
+      - name: Install the pinned environment
+        run: uv sync --locked --managed-python --python 3.13.16
+      - name: Runtime admission
+        run: uv run --frozen python -m principalloop doctor
+      - name: Tests
+        run: uv run --frozen python -m pytest -q
+      - name: Documentation checks
+        run: uv run --frozen python scripts/validate_preparation.py
+      - name: Demo scenarios
+        run: uv run --frozen principalloop demo --no-open --json --lang en --output demo.html
+      - name: Build sdist and wheel
+        run: uv build
+
+  install:
+    name: uv tool install (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [windows-latest, ubuntu-latest]
+    steps:
+      - uses: actions/checkout@v7
+      - uses: astral-sh/setup-uv@v10
+      - name: Install as a user would
+        run: uv tool install --python 3.13 .
+      - name: Expose installed tools
+        shell: bash
+        run: uv tool dir --bin >> "$GITHUB_PATH"
+      - name: Command is usable
+        run: |
+          principalloop --version
+          principalloop doctor
+          principalloop demo --no-open --json --lang en --output tool-demo.html
