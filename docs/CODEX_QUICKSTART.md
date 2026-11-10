@@ -7,12 +7,12 @@
 You need [uv](https://docs.astral.sh/uv/) and Codex (CLI or desktop app), on Windows or Linux.
 
 ```bash
-uv tool install git+https://github.com/Venorium/PrincipalLoop
+uv tool install --managed-python git+https://github.com/Venorium/PrincipalLoop
 codex plugin marketplace add Venorium/PrincipalLoop
 codex plugin add principalloop@principalloop
 ```
 
-The first command installs `principalloop`, which the plugin launches; uv downloads Python 3.13 if needed. If `principalloop` is not found, run `uv tool update-shell`, then restart the terminal and Codex. The next two commands register this repository's catalog and install the plugin for both the CLI and the desktop app. Once the catalog is added, the app can also install the plugin from its plugin directory. Nothing is written into your projects ([plugin format](https://developers.openai.com/plugins/build/plugins)).
+The first command installs `principalloop`, which the plugin launches. `--managed-python` makes uv use, and download if needed, its own Python 3.13 build, whose SQLite carries the WAL fix the kernel requires. Without it, uv may pick a system Python: the python.org 3.13.17 Windows build bundles SQLite 3.50.4 and is refused by `principalloop doctor`. If `principalloop` is not found, run `uv tool update-shell`, then restart the terminal and Codex. The next two commands register this repository's catalog and install the plugin for both the CLI and the desktop app. Once the catalog is added, the app can also install the plugin from its plugin directory. Nothing is written into your projects ([plugin format](https://developers.openai.com/plugins/build/plugins)).
 
 ## Enable a project
 

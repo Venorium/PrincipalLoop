@@ -36,11 +36,11 @@
   "reference_python": "3.13.16",
   "qualified": true,
   "limits_scope": "The limits field describes doctor only; process-crash tests belong to the test suite.",
-  "qualified_at_utc": "2026-11-10T15:10:25.331228+00:00",
+  "qualified_at_utc": "2026-11-10T15:21:33.789688+00:00",
   "uv": "uv 0.12.23 (46b84fd0b 2026-10-03 x86_64-pc-windows-msvc)",
   "fresh_install_qualified": true,
   "non_editable_import_outside_repository": true,
-  "tests": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n.......................................................                  [100%]\n199 passed in 9.70s",
+  "tests": "........................................................................ [ 36%]\n........................................................................ [ 72%]\n.......................................................                  [100%]\n199 passed in 9.74s",
   "store_demo": {
     "passed": true,
     "checks": {
@@ -71,8 +71,8 @@
   "source_sha256": {
     ".agents/plugins/marketplace.json": "86c6d170f15c56a66116ad174fa3e9af5130cafa03161764aa678957e44b23d9",
     ".gitattributes": "bc30d204f0075adb7b509451898052608a1d481d955a9152ac139dbec25d18d7",
-    ".github/workflows/ci.yml": "bdc9b48aac877f7d3239fb8246a2b8a12d4069a35a1f0ba75362ca2752747de9",
-    ".github/workflows/pages.yml": "ce1b2f2a690427c1a11b46691201e4eee7b7b26bd9223b14698d70fb958cce31",
+    ".github/workflows/ci.yml": "cff6f0e74b0eb99c26b64fce6734b5a679343d3d076267129a95d497ef45ef8f",
+    ".github/workflows/pages.yml": "2267c3c02c2487f72b590c502e923e31f07991a8cb1e0ac66a11aa31e308ef46",
     ".python-version": "2d82946ffb2ecf549699ebb86ecbbe663bbc19d53c49c681a1a425f003f80ddb",
     "contracts/checkpoint.schema.json": "eaa1fd2fc5d7f20c7741d6d1704ffb2dd0a49e4016342dae57e67a2828ecfc60",
     "contracts/decision-proposal.schema.json": "66279afd5b23de2b9604209f2fe3f977177d0cccfddfd1a70ce381bcd70ff631",
@@ -108,7 +108,7 @@
     "src/principalloop/cli.py": "b4f2f2f83275565c0db063c1b00175f1efb20895fb9aa22d1544d76cf1a7ab1e",
     "src/principalloop/codex/__init__.py": "ec3dd9a36aac5e790f3b49907e139547c873098bcdd53ea4010f8bf7a6edc767",
     "src/principalloop/codex/cli.py": "a74f3d6b714f499367d80e74b55dcb45cfbec8a76d2a098a9e64fbabf16b2f6a",
-    "src/principalloop/codex/doctor.py": "610df02e5070c01e51f75fb1b96f8c9cf2fb36099f7add83dafaed7b3f118d6e",
+    "src/principalloop/codex/doctor.py": "2cff9bcb956dec638ab12297fb1d241e4d351eaee0334155b4505654ac30360a",
     "src/principalloop/codex/install.py": "a135b622e1fb38e79e6b35deb9a4270d6c15ec228f90b5e4a6fa7ae49158e615",
     "src/principalloop/codex/profile.py": "d3e11e612ec4b6c3adf7bbb2a4f05ac90ae6236585ab8fa745495c9d1443cdaa",
     "src/principalloop/codex/protocol.py": "b7742cad933a042b7e37f003993a6a2917e95d55284a59ef0f3940cd22c86c9a",

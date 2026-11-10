@@ -50,7 +50,8 @@ jobs:
       - uses: actions/checkout@v7
       - uses: astral-sh/setup-uv@v10.3.3
       - name: Install as a user would
-        run: uv tool install --python 3.13 .
+        # A runner's preinstalled Python may bundle an unpatched SQLite: use uv's build, as the docs do.
+        run: uv tool install --managed-python --python 3.13 .
       - name: Expose installed tools
         shell: bash
         run: uv tool dir --bin >> "$GITHUB_PATH"

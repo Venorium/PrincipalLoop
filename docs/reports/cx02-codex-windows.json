@@ -1,5 +1,5 @@
 {
-  "qualified_at_utc": "2026-11-10T15:11:05.710932+00:00",
+  "qualified_at_utc": "2026-11-10T15:21:12.962616+00:00",
   "passed": true,
   "runs": [
     {
@@ -34,77 +34,77 @@
         "observed_calls": [
           {
             "method": "initialize",
-            "elapsed_ms": 145.14,
+            "elapsed_ms": 140.01,
             "response_bytes": 281
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 32.11,
+            "elapsed_ms": 27.4,
             "response_bytes": 1648
           },
           {
             "method": "mcpServerStatus/list",
-            "elapsed_ms": 282.53,
+            "elapsed_ms": 283.93,
             "response_bytes": 3471
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 17.63,
+            "elapsed_ms": 18.73,
             "response_bytes": 686
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 14.37,
+            "elapsed_ms": 17.02,
             "response_bytes": 713
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 5.88,
+            "elapsed_ms": 5.55,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.87,
+            "elapsed_ms": 4.91,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 11.07,
+            "elapsed_ms": 11.81,
             "response_bytes": 1497
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 3.85,
+            "elapsed_ms": 4.12,
             "response_bytes": 609
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 6.62,
+            "elapsed_ms": 4.91,
             "response_bytes": 714
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 11.13,
+            "elapsed_ms": 11.19,
             "response_bytes": 1674
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 301.61,
+            "elapsed_ms": 285.71,
             "response_bytes": 986
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 12.0,
+            "elapsed_ms": 15.51,
             "response_bytes": 1639
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 272.95,
+            "elapsed_ms": 291.65,
             "response_bytes": 900
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 1.7,
+            "elapsed_ms": 2.1,
             "response_bytes": 379
           }
         ],
@@ -127,52 +127,52 @@
         "observed_calls": [
           {
             "method": "initialize",
-            "elapsed_ms": 152.4,
+            "elapsed_ms": 154.53,
             "response_bytes": 288
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 24.93,
+            "elapsed_ms": 25.24,
             "response_bytes": 1643
           },
           {
             "method": "mcpServerStatus/list",
-            "elapsed_ms": 295.38,
-            "response_bytes": 3265
+            "elapsed_ms": 271.14,
+            "response_bytes": 3266
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 18.97,
+            "elapsed_ms": 17.31,
             "response_bytes": 688
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 11.88,
+            "elapsed_ms": 10.86,
             "response_bytes": 713
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.95,
+            "elapsed_ms": 4.65,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.02,
+            "elapsed_ms": 3.76,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 5.38,
+            "elapsed_ms": 5.34,
             "response_bytes": 1497
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 2.81,
+            "elapsed_ms": 2.68,
             "response_bytes": 609
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.02,
+            "elapsed_ms": 3.7,
             "response_bytes": 714
           }
         ]
@@ -212,42 +212,42 @@
         "observed_calls": [
           {
             "method": "initialize",
-            "elapsed_ms": 139.52,
+            "elapsed_ms": 144.01,
             "response_bytes": 291
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 36.43,
+            "elapsed_ms": 24.64,
             "response_bytes": 1658
           },
           {
             "method": "mcpServerStatus/list",
-            "elapsed_ms": 291.62,
+            "elapsed_ms": 281.83,
             "response_bytes": 3471
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 18.36,
+            "elapsed_ms": 18.43,
             "response_bytes": 686
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 13.33,
+            "elapsed_ms": 12.91,
             "response_bytes": 713
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 6.77,
+            "elapsed_ms": 6.88,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 5.44,
+            "elapsed_ms": 5.95,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 6.96,
+            "elapsed_ms": 6.56,
             "response_bytes": 1497
           },
           {
@@ -257,32 +257,32 @@
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 5.37,
+            "elapsed_ms": 5.23,
             "response_bytes": 714
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 11.56,
+            "elapsed_ms": 10.9,
             "response_bytes": 1684
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 289.54,
+            "elapsed_ms": 297.28,
             "response_bytes": 986
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 12.5,
+            "elapsed_ms": 11.91,
             "response_bytes": 1649
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 288.84,
+            "elapsed_ms": 284.55,
             "response_bytes": 900
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 2.13,
+            "elapsed_ms": 1.79,
             "response_bytes": 379
           }
         ],
@@ -305,52 +305,52 @@
         "observed_calls": [
           {
             "method": "initialize",
-            "elapsed_ms": 149.17,
+            "elapsed_ms": 155.26,
             "response_bytes": 298
           },
           {
             "method": "thread/start",
-            "elapsed_ms": 21.63,
+            "elapsed_ms": 22.38,
             "response_bytes": 1653
           },
           {
             "method": "mcpServerStatus/list",
-            "elapsed_ms": 280.81,
+            "elapsed_ms": 280.52,
             "response_bytes": 3266
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 19.3,
+            "elapsed_ms": 16.84,
             "response_bytes": 688
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 13.8,
+            "elapsed_ms": 11.5,
             "response_bytes": 713
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 5.94,
+            "elapsed_ms": 5.52,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.63,
+            "elapsed_ms": 4.14,
             "response_bytes": 594
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 6.41,
+            "elapsed_ms": 5.19,
             "response_bytes": 1497
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 3.49,
+            "elapsed_ms": 2.75,
             "response_bytes": 609
           },
           {
             "method": "mcpServer/tool/call",
-            "elapsed_ms": 4.85,
+            "elapsed_ms": 3.74,
             "response_bytes": 714
           }
         ]
@@ -371,7 +371,7 @@
     "scripts/qualify_codex.py": "3d8d61cfed6cc93b4d7f41edb700d8ec0336133e875c2f6d981ed155dd0aa13e",
     "src/principalloop/codex/__init__.py": "ec3dd9a36aac5e790f3b49907e139547c873098bcdd53ea4010f8bf7a6edc767",
     "src/principalloop/codex/cli.py": "a74f3d6b714f499367d80e74b55dcb45cfbec8a76d2a098a9e64fbabf16b2f6a",
-    "src/principalloop/codex/doctor.py": "610df02e5070c01e51f75fb1b96f8c9cf2fb36099f7add83dafaed7b3f118d6e",
+    "src/principalloop/codex/doctor.py": "2cff9bcb956dec638ab12297fb1d241e4d351eaee0334155b4505654ac30360a",
     "src/principalloop/codex/install.py": "a135b622e1fb38e79e6b35deb9a4270d6c15ec228f90b5e4a6fa7ae49158e615",
     "src/principalloop/codex/profile.py": "d3e11e612ec4b6c3adf7bbb2a4f05ac90ae6236585ab8fa745495c9d1443cdaa",
     "src/principalloop/codex/protocol.py": "b7742cad933a042b7e37f003993a6a2917e95d55284a59ef0f3940cd22c86c9a",

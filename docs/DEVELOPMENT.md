@@ -44,7 +44,7 @@ The tests compare the installed bytes with the sources and detect a stale packag
 
 ## Platforms and rollback
 
-Linux was run in a Debian container: uv 0.12.23, managed CPython 3.13.16, `uv sync --locked`, then diagnostic, tests, documentation check and demo. Four tests specific to Windows recovery are skipped. The [GitHub Actions](../.github/workflows/ci.yml) CI repeats these checks on Windows and Linux, and installs the package as a user would with `uv tool install`. macOS is not tested.
+Linux was run in a Debian container: uv 0.12.23, managed CPython 3.13.16, `uv sync --locked`, then diagnostic, tests, documentation check and demo. Four tests specific to Windows recovery are skipped. The [GitHub Actions](../.github/workflows/ci.yml) CI repeats these checks on Windows and Linux, and installs the package as a user would with `uv tool install --managed-python`. macOS is not tested.
 
 The PL-01/02 changes have no migration and no persistent state to undo. A rollback restores only the affected files from Git history, after comparing them with more recent changes. Local environments can be recreated without touching the global Python. Never delete an environment, `.git` or a computed directory without checking its path and content.
 

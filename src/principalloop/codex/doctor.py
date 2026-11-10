@@ -21,7 +21,9 @@ from .profile import find_profile, same_path
 
 MARKETPLACE = "codex plugin marketplace add Venorium/PrincipalLoop"
 PLUGIN = "codex plugin add principalloop@principalloop"
-TOOL = "uv tool install git+https://github.com/Venorium/PrincipalLoop"
+# uv's own Python builds carry a patched SQLite; some system builds (python.org 3.13.17 on Windows) do not.
+TOOL = "uv tool install --managed-python git+https://github.com/Venorium/PrincipalLoop"
+REINSTALL = "uv tool install --force --managed-python git+https://github.com/Venorium/PrincipalLoop"
 
 
 
@@ -84,7 +86,7 @@ def diagnose_integration(workspace, state_dir=None):
 
     runtime = diagnose()
     if not runtime["admitted"]:
-        add("runtime", "fail", "Runtime", f"Python {runtime['python']} / SQLite {runtime['sqlite']} refused by the kernel.", TOOL + " --python 3.13")
+        add("runtime", "fail", "Runtime", f"Python {runtime['python']} / SQLite {runtime['sqlite']} refused by the kernel.", REINSTALL)
     elif not runtime["reference_runtime"]:
         add("runtime", "warn", "Runtime", f"Python {runtime['python']}, SQLite {runtime['sqlite']}: accepted; published evidence uses Python {runtime['reference_python']}.")
     else:

@@ -24,11 +24,11 @@ PrincipalLoop keeps a **checkpoint**: the files you choose, stored byte for byte
 
 ## Quick start
 
-You need [uv](https://docs.astral.sh/uv/) and Codex (CLI or desktop app). Windows and Linux are tested; uv downloads Python 3.13 if needed.
+You need [uv](https://docs.astral.sh/uv/) and Codex (CLI or desktop app). Windows and Linux are tested; `--managed-python` makes uv use its own Python 3.13, whose SQLite carries the fix the kernel requires.
 
 ```bash
 # 1. Install the command used by the plugin
-uv tool install git+https://github.com/Venorium/PrincipalLoop
+uv tool install --managed-python git+https://github.com/Venorium/PrincipalLoop
 
 # 2. Add the plugin to Codex
 codex plugin marketplace add Venorium/PrincipalLoop
